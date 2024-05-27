@@ -64,7 +64,7 @@ const useVotingMachine = () => {
   };
 
   const handleConfirmarVoto = () => {
-    if (voto !== null && voto !== -1) {
+    if ((voto !== null && voto !== -1) && (voto === 22 || voto === 23)) {
       setVotoConfirmado(true);
       setContagemRegressivaAtiva(true);
       setNovoVotoPermitido(false);

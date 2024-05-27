@@ -27,6 +27,8 @@ const Display: React.FC<DisplayProps> = ({
 }) => {
   const votosExibidos = totalVotos === -1 ? 0 : totalVotos;
 
+  const isVotoValido = voto === 22 || voto === 23;
+
   return (
     <div className="bg-gray-100 p-4 sm:p-8 rounded-lg">
       <div className="w-full sm:w-80 h-96 sm:h-96 bg-white flex items-center justify-center">
@@ -37,31 +39,41 @@ const Display: React.FC<DisplayProps> = ({
             </p>
           )}
 
-          {voto !== null && voto !== -1 && (
+          {voto !== null && (
             <>
-              {getCandidatoImage().src ? (
-                <div className="text-center">
-                  <Image
-                    src={getCandidatoImage().src}
-                    alt={`Candidato ${voto}`}
-                    width={getCandidatoImage().width}
-                    height={getCandidatoImage().height}
-                    className="mb-4 mx-auto"
-                    style={{ maxWidth: "200px", maxHeight: "200px" }}
-                  />
-                </div>
-              ) : (
-                <p className="text-base sm:text-lg font-semibold text-center mt-2 sm:mt-4">
-                  Candidato não encontrado
-                </p>
+              {isVotoValido && (
+                <>
+                  {getCandidatoImage().src ? (
+                    <div className="text-center">
+                      <Image
+                        src={getCandidatoImage().src}
+                        alt={`Candidato ${voto}`}
+                        width={getCandidatoImage().width}
+                        height={getCandidatoImage().height}
+                        className="mb-4 mx-auto"
+                        style={{ maxWidth: "200px", maxHeight: "200px" }}
+                      />
+                    </div>
+                  ) : (
+                    <p className="text-base sm:text-lg font-semibold text-center mt-2 sm:mt-4">
+                      Candidato não encontrado
+                    </p>
+                  )}
+                  {votoConfirmado && (
+                    <p className="text-base sm:text-lg font-semibold text-center mt-2 sm:mt-4">
+                      Você votou no Candidato {voto}
+                    </p>
+                  )}
+                </>
               )}
-              {votoConfirmado && voto !== -1 && (
+              {!isVotoValido && (
                 <p className="text-base sm:text-lg font-semibold text-center mt-2 sm:mt-4">
-                  Você votou no Candidato {voto}
+                  Voto inválido. Por favor, vote nos candidatos 22 ou 23.
                 </p>
               )}
             </>
           )}
+
           {voto === -1 && (
             <p className="text-base sm:text-lg font-semibold text-center mt-2 sm:mt-4">
               Você votou em branco

@@ -26,12 +26,12 @@ const Results: React.FC<ResultsProps> = ({
     vencedor = 23;
     perdedor = 22;
     vencedorVotos = candidato23Votos;
-    perdedorVotos = candidato22Votos;
+    perdedorVotos = candidato22Votos || 0;
   } else if (candidato22Votos > candidato23Votos) {
     vencedor = 22;
     perdedor = 23;
     vencedorVotos = candidato22Votos;
-    perdedorVotos = candidato23Votos;
+    perdedorVotos = candidato23Votos || 0;
   }
 
   const getCandidatoImage = (candidato: number) => {
