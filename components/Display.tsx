@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { SocialIcon } from 'react-social-icons'
+import { SocialIcon } from "react-social-icons";
 
 import Link from "next/link";
 
@@ -76,8 +76,15 @@ const Display: React.FC<DisplayProps> = ({
       </div>
       <div className="flex justify-center mt-2 sm:mt-4">
         {[...Array(2)].map((_, index) => (
-          <div key={index} className="flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-md mx-1 sm:mx-2 bg-gray-300">
-            {index < numerosDigitados ? (index === 0 ? voto?.toString()[0] : voto?.toString()[1]) : ""}
+          <div
+            key={index}
+            className="flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-md mx-1 sm:mx-2 bg-gray-300"
+          >
+            {index < numerosDigitados
+              ? index === 0
+                ? voto?.toString()[0]
+                : voto?.toString()[1]
+              : ""}
           </div>
         ))}
       </div>
@@ -90,11 +97,6 @@ const Display: React.FC<DisplayProps> = ({
           <div className="flex justify-center space-x-4 mt-2">
             <Link href="https://x.com/wesleibruno945" className="text-blue-500">
               <FontAwesomeIcon icon={faTwitter} size="2x" />
-              {/* <SocialIcon url="www.x.com" style={{ height: 32, width: 32 }} /> */}
-
-            </Link>
-            <Link href="https://github.com/wesleibruno" className="text-gray-800">
-              <FontAwesomeIcon icon={faGithub} size="2x" />
             </Link>
           </div>
         </div>
