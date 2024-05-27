@@ -26,14 +26,14 @@ const Keypad: React.FC<KeypadProps> = ({
           0
         </Button>
       </div>
-      <div className="p-2 rounded-md mt-4">
-        <Button className="py-4 px-8 bg-white text-gray-800 rounded-md mr-4" onClick={handleVotarBranco}>
+      <div className="p-2 rounded-md mt-4 flex flex-wrap justify-between">
+        <Button className="py-4 px-8 bg-white text-gray-800 rounded-md mb-2" onClick={handleVotarBranco}>
           Branco
         </Button>
-        <Button className="py-4 px-8 bg-orange-500 text-white rounded-md mr-4" onClick={handleCorrigeVoto}>
+        <Button className="py-4 px-8 bg-orange-500 text-white rounded-md mb-2" onClick={handleCorrigeVoto}>
           Corrige
         </Button>
-        <Button className="py-4 px-8 bg-green-500 text-white rounded-md" onClick={handleConfirmarVoto}>
+        <Button className="py-4 px-8 bg-green-500 text-white rounded-md mb-2" onClick={handleConfirmarVoto}>
           Confirma
         </Button>
       </div>
