@@ -30,6 +30,7 @@ const UrnaEletronica: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center">
+      <div className="text-2xl font-bold mb-16 md:mb-0"></div>
       {!mostrarResultados && (
         <Button
           className="fixed bottom-4 right-4"
@@ -41,7 +42,7 @@ const UrnaEletronica: React.FC = () => {
       {!mostrarResultados ? (
         <div className="flex h-screen items-center justify-center">
           <div>
-            <div className="grid grid-rows-1 mt-38">
+            <div className="grid grid-rows-1">
               <div className="flex justify-between w-full mb-4">
                 <CardComponent
                   candidato="23"
@@ -55,7 +56,7 @@ const UrnaEletronica: React.FC = () => {
                 />
               </div>
             </div>
-            <div className="border border-gray-100 rounded-lg flex flex-row shadow-lg">
+            <div className="border border-gray-100 rounded-lg flex flex-row shadow-lg space-x-4 md:space-x-0">
               <Display
                 voto={voto}
                 votoConfirmado={votoConfirmado}

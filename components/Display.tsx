@@ -50,8 +50,10 @@ const Display: React.FC<DisplayProps> = ({
                         alt={`Candidato ${voto}`}
                         width={getCandidatoImage().width}
                         height={getCandidatoImage().height}
-                        className="mb-4 mx-auto"
-                        style={{ maxWidth: "200px", maxHeight: "200px" }}
+                        // className="mb-4 mx-auto"
+                        className="mb-4 mx-auto max-w-full max-h-full md:max-w-200 md:max-h-200"
+
+                        // style={{ maxWidth: "200px", maxHeight: "200px" }}
                       />
                     </div>
                   ) : (
