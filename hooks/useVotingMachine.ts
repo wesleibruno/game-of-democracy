@@ -64,7 +64,7 @@ const useVotingMachine = () => {
   };
 
   const handleConfirmarVoto = () => {
-    if ((voto !== null && voto !== -1) && (voto === 22 || voto === 23)) {
+    if (voto !== null && voto !== -1 && (voto === 22 || voto === 23)) {
       setVotoConfirmado(true);
       setContagemRegressivaAtiva(true);
       setNovoVotoPermitido(false);
@@ -90,9 +90,13 @@ const useVotingMachine = () => {
   };
 
   const mostrarResultadosEleicao = () => {
-    setMostrarResultados(true);
     const votosBolsonaro = votosCandidatos[22] || 0;
     const votosLula = votosCandidatos[23] || 0;
+
+    if (votosBolsonaro === 0 && votosLula === 0) {
+      return;
+    }
+    setMostrarResultados(true);
 
     if (votosBolsonaro > votosLula) {
       const novosVotosCandidatos = {
